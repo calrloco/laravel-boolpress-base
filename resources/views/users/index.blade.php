@@ -1,7 +1,9 @@
 @extends('../layouts.app')
 @section('content')
     @if (session('cancella'))
-        <p>{{ session('cancella') }}</p>
+    <div class="alert alert-danger  d-flex justify-content-center align-items-center flex-row" role="alert">
+        {{ session('cancella') }}
+      </div>
     @endif
     <h2 class="h2 display-4">Elenco Utenti</h2>
     @foreach ($users as $user)
