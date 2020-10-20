@@ -41,13 +41,13 @@ class PostController extends Controller
         $request->validate([
            'title' => 'required|min:5|max:100',
            'body' => 'required|min:5|max:500',
-           'user_id' => 'required|numeric|exists:user,id'
+           'user_id' => 'required|numeric|exists:users,id'
         ]);
         $postnew = new Post();
         $postnew->fill($data);
         $saved = $postnew->save();
         if($saved){
-            return redirect()->route('posts.index');
+            return redirect()->route('posts.index')->with('success','Nuovo post creato');
         }
     }
 
